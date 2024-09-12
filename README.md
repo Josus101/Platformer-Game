@@ -4,10 +4,9 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+The workspace contains one folder by default:
 
 - `src`: the folder to maintain sources
-- `bin`: the folder to store the compiled classes
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
