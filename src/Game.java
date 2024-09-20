@@ -13,7 +13,7 @@ public class Game {
         frame.setTitle("Platformer");
 
         // Set the size of the frame
-        frame.setSize(800, 600);
+        frame.setSize(1600, 1200);
         
         // Add the custom panel to the frame
         gameManager = new GameManager(frame);

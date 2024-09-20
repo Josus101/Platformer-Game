@@ -12,6 +12,8 @@ public class InputHandler implements KeyListener{
     int down = 0;
 
     boolean jump = false;
+
+    boolean dash = false;
     
     @Override
     public void keyPressed(KeyEvent e) {
@@ -29,6 +31,9 @@ public class InputHandler implements KeyListener{
         // jump
         if (e.getKeyCode() == 32) jump = true;
         if (e.getKeyCode() == 38) jump = true;
+
+        // dash
+        if (e.getKeyCode() == 16) dash = true; 
     }
 
     @Override
@@ -52,6 +57,8 @@ public class InputHandler implements KeyListener{
         // jump
         if (e.getKeyCode() == 32) jump = false;
         if (e.getKeyCode() == 38) jump = false;
+
+        if (e.getKeyCode() == 16) dash = false;
     }
 
     public int horizontal() {
@@ -62,7 +69,11 @@ public class InputHandler implements KeyListener{
         return up + down;
     }
 
-    public boolean jump(){
+    public boolean jump() {
         return jump;
+    }
+
+    public boolean dash() {
+        return dash;
     }
 }

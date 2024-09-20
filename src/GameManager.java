@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class GameManager {
 
-    public static float gravity = 2000f;
+    public static float gravity = 2400f;
 
     Scene scene = new Scene();
 

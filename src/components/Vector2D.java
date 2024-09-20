@@ -46,7 +46,7 @@ public class Vector2D {
         this.y += other.getY();
     }
 
-    public Vector2D add(Vector2D vec1, Vector2D vec2) {
+    public static Vector2D add(Vector2D vec1, Vector2D vec2) {
         double x = vec1.getX() + vec2.getX();
         double y = vec1.getY() + vec2.getY();
         return new Vector2D(x, y);

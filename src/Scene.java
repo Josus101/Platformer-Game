@@ -10,12 +10,12 @@ public class Scene extends JPanel {
     Player player;
     InputHandler inputHandler;
     Object[] objects = {
-            new Object(new Vector2D(800 / 2, 600 - 50), new Vector2D(800, 50)),
-            new Object(new Vector2D(600, 150), new Vector2D(100, 10)),
-            new Object(new Vector2D(300, 200), new Vector2D(100, 10)),
-            new Object(new Vector2D(450, 300), new Vector2D(100, 10)),
-            new Object(new Vector2D(600, 450), new Vector2D(100, 10)),
-            new Object(new Vector2D(200, 230), new Vector2D(100, 10))
+            new Object(new Vector2D(1600 / 2, 1100 - 300), new Vector2D(1600, 150)),
+            new Object(new Vector2D(600, 250), new Vector2D(100, 10)),
+            new Object(new Vector2D(300, 300), new Vector2D(100, 10)),
+            new Object(new Vector2D(450, 400), new Vector2D(100, 10)),
+            new Object(new Vector2D(600, 550), new Vector2D(100, 10)),
+            new Object(new Vector2D(200, 330), new Vector2D(100, 10))
         };
 
     public Scene(int width, int height) {
@@ -34,7 +34,7 @@ public class Scene extends JPanel {
     }
 
     public Scene() {
-        this(800, 600);
+        this(1600, 1200);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Scene extends JPanel {
             if (player.getHitBox().isColliding(o.getHitBox()) && o.getLayer() == "collidable") {
                 // System.out.println("Colliding");
 
-                // find the side the player is on. 
+               // find the side the player is on. 
                 double aboveSideDist = Math.abs(player.getHitBox().above() - o.getHitBox().below());
                 double belowSideDist = Math.abs(player.getHitBox().below() - o.getHitBox().above());
                 double leftSideDist = Math.abs(player.getHitBox().left() - o.getHitBox().rigtht());
@@ -80,13 +80,17 @@ public class Scene extends JPanel {
 
                 } else if (minDist == leftSideDist) {                                   // player is right
                     player.move(new Vector2D(minDist, 0));
-
                 } else {                                                                // player is left
                     player.move(new Vector2D(-minDist, 0));
                 }
             }
+            if (player.getGroundCheckBox().isColliding(o.getHitBox())) {
+                player.setGrounded(true);
+            }
+            
         }
         repaint();
     }
     
 }
+  
