@@ -14,6 +14,7 @@ public class Player {
     double moveSpeed;
 
     double jumpScale = 0;
+    double jumpScaleChange = 0.15;
     double jumpHeight = 180;
 
     Vector2D facingDir;
@@ -117,7 +118,7 @@ public class Player {
 
         // jump
         if (input.jump()){
-            jumpScale += 0.20;
+            jumpScale += jumpScaleChange;
             if (jumpScale > 1) {
                 jumpScale = 1;
                 this.isGrounded = false;
@@ -129,6 +130,7 @@ public class Player {
             }
         } else {
             jumpScale = 0;
+            this.isGrounded = false;
         }
         // dash
         if (input.dash() && dashCooldownTimer == 0) {
